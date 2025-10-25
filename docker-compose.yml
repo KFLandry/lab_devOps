@@ -1,0 +1,50 @@
+services:
+  api:
+    build: ./2025-devops-docker/microservices-app/api
+    image: api:latest
+    container_name: api
+    ports:
+      - "4000:4000"
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - microservices-network
+
+  worker:
+    build: ./2025-devops-docker/microservices-app/worker
+    image: worker:latest
+    container_name: worker
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - microservices-network
+
+  postgres:
+    image: "postgres:16.10-alpine3.22"
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: microservices
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+
+  redis:
+    image: "redis:alpine"
+    container_name: redis
+    ports:
+      - "6380:6380"
+    networks:
+      - microservices-network
+
+volumes:
+  pgdata:
+
+networks:
+  microservices-network:
