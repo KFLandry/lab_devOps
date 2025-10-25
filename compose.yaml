@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16.10-alpine3.22
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./bd.sql:/docker-entrypoint-initdb.d/bd.sql
+
+volumes:
+  pgdata:
