@@ -1,0 +1,5 @@
+Les resultats de la comparaison  : 
+
+root@WL-394SFB3:/mnt/c/Projets/Personnel/DevOpsProject/labDevOps# docker image ls | grep go-app
+optimized-go-app            latest                8c05ba1576cd   3 minutes ago    7.27MB
+bloated-go-app              latest                b12b8ac9019c   13 minutes ago   888MB
