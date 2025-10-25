@@ -1,0 +1,1 @@
+docker compose -f ./LibreChat-main/docker-compose.yml -f ./LibreChat-main/docker-compose-override.yaml up -d --build
