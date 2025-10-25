@@ -78,8 +78,9 @@ Le MCP filesystem est activé et permet d'ajouter du contexte depuis des fichier
 
 ```
 8-ai/
-├── .env.done → .env
-├── librechat.done.yaml → librechat.yaml
 ├── setup.sh
+├── README.md
 └── LibreChat-main/ (pour fichiers MCP filesystem)
+    ├── .env.done → .env
+    ├── librechat.done.yaml → librechat.yaml
 ```
